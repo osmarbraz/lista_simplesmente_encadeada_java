@@ -20,7 +20,7 @@ public class No {
      * Construtor com parâmetros.
      *
      * @param dado um valor do tipo inteiro.
-     * @param proximo um próximo no da lista
+     * @param proximo um próximo nó da lista
      */
     public No(int dado, No proximo) {
         this.dado = dado;
