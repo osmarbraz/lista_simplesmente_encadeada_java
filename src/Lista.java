@@ -48,14 +48,14 @@ public class Lista {
     /**
      * Insere um nó no início da lista.
      *
-     * @param valor Um novo valor de um nó a ser inserido na lista.
+     * @param dado Um novo valor de um nó a ser inserido na lista.
      * @return Verdadeiro se conseguiu incluir o nó no início da lista.
      */
-    public boolean inserirInicio(int valor) {
+    public boolean inserirInicio(int dado) {
         //Instancia o novo nó
         No novo = new No();
         //Atribui o dado ao nó
-        novo.setDado(valor);
+        novo.setDado(dado);
         //Coloca o primeiro no proximo do novo
         novo.setProximo(getInicio()); 
         //Coloca o novo nó em início
@@ -66,17 +66,20 @@ public class Lista {
     /**
      * Insere um nó em uma posição especifica da lista.
      *
-     * @param valor Um novo valor de um nó a ser inserido na lista.
+     * @param dado Um novo valor de um nó a ser inserido na lista.
      * @param k Posição a ser inserida o valor.
      * @return Verdadeiro ou falso se conseguiu incluir o novo valor.
      */
-    public boolean inserirPosicao(int valor, int k) {
+    public boolean inserirPosicao(int dado, int k) {
+        //Verifica se a posição é maior que 0
         if (k > 0) {
+            //Verifica se a posição é maior que 1
             if (k > 1) {
                 int cont = 1;
                 //Recupera o início da lista
                 No atual = getInicio(); 
                 No anterior = null;
+                //Percorre a lista até ou fim ou chegar na posição
                 while ((atual != null) && (cont != k)) {
                     anterior = atual;
                     atual = atual.getProximo();
@@ -86,7 +89,7 @@ public class Lista {
                     //Instancia o novo nó
                     No novo = new No();
                     //Atribui o dado ao nó
-                    novo.setDado(valor);
+                    novo.setDado(dado);
                     novo.setProximo(anterior.getProximo());
                     anterior.setProximo(novo);
                     return true;
@@ -96,7 +99,7 @@ public class Lista {
             } else {
                 //Instancia o novo nó
                 No novo = new No();
-                novo.setDado(valor);
+                novo.setDado(dado);
                 novo.setProximo(getInicio()); // Coloca o primeiro no proximo do novo
                 setInicio(novo); // Coloca o novo no inicio
                 return true;
@@ -109,16 +112,16 @@ public class Lista {
     /**
      * Insere um nó no final da lista.
      *
-     * @param valor Um novo valor de um nó a ser inserido na lista.
+     * @param dado Um novo valor de um nó a ser inserido na lista.
      * @return Verdadeiro se conseguiu incluir o nó no final da lista.
      */
-    public boolean inserirFim(int valor) {
+    public boolean inserirFim(int dado) {
         //Verifica se a lista não está vazia
         if (getInicio() == null) {
             //Instancia o novo nó
             No novo = new No();
             //Atribui o dado ao nó
-            novo.setDado(valor);
+            novo.setDado(dado);
             setInicio(novo);
             return true;
         } else {
@@ -131,7 +134,7 @@ public class Lista {
             //Instancia o novo nó
             No novo = new No();
             //Atribui o dado ao nó
-            novo.setDado(valor);
+            novo.setDado(dado);
             atual.setProximo(novo);
             return true;
         }
@@ -225,11 +228,11 @@ public class Lista {
     /**
      * Altera o valor de um Nó da lista pela posição.
      *
-     * @param valor Um valor a ser atualizado na posição k da lista.
+     * @param dado Um valor a ser atualizado na posição k da lista.
      * @param k Posição do nó a ser alterado da lista.
      * @return Verdadeiro ou falso se alterou o valor da posição.
      */
-    public boolean alterarPosicao(int valor, int k) {
+    public boolean alterarPosicao(int dado, int k) {
         if (getInicio() != null) {
             //Recupera o início da lista
             No atual = getInicio(); 
@@ -239,7 +242,7 @@ public class Lista {
                 cont = cont + 1;
             }
             if (cont == k) {
-                atual.setDado(valor);
+                atual.setDado(dado);
                 return true;
             } else {
                 return false;
@@ -361,11 +364,11 @@ public class Lista {
     }
 
     /**
-     * Retorna se a lista esta vazia.
+     * Retorna se a lista está vazia.
      *
      * @return Verdadeiro ou falso se a lista está vazia.
      */
     public boolean estaVazia() {
         return getInicio() == null;
     }
-}
+}//Fim Lista
